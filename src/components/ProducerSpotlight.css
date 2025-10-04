@@ -1,0 +1,151 @@
+.spotlight-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  padding: 2rem 1.5rem; /* Giảm padding trên mobile */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.spotlight-background {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(0, 191, 255, 0.2),
+      transparent 50%
+    ),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.2), transparent 50%),
+    var(--surface-color);
+  filter: blur(20px);
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-direction: column; /* Xếp dọc trên mobile */
+  text-align: center;
+}
+
+.spotlight-avatar {
+  width: 140px; /* Nhỏ hơn trên mobile */
+  height: 140px;
+  margin: 0 auto; /* Căn giữa */
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 4px solid white;
+  box-shadow: 0 0 25px var(--neon-purple);
+  padding: 5px;
+  background: var(--background-dark);
+}
+
+.spotlight-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.spotlight-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spotlight-tagline {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--neon-blue);
+  margin: 0;
+}
+
+.spotlight-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.spotlight-stats {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-direction: column; /* Xếp dọc trên mobile */
+  align-items: flex-start; /* Căn trái */
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+  color: var(--neon-purple);
+}
+
+.stat-item strong {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.stat-item span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.spotlight-button {
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: center; /* Nút chỉ chiếm độ rộng cần thiết */
+}
+
+.spotlight-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+/* Media query cho tablet trở lên */
+@media (min-width: 768px) {
+  .spotlight-content {
+    flex-direction: row; /* Xếp ngang trở lại */
+    text-align: left;
+    gap: 3rem;
+  }
+  .spotlight-avatar {
+    width: 180px; /* Lớn hơn trên tablet */
+    height: 180px;
+  }
+  .spotlight-info {
+    align-items: flex-start; /* Căn trái */
+  }
+  .spotlight-name {
+    font-size: 3.5rem;
+  }
+
+  .spotlight-stats {
+    flex-direction: row; /* Xếp ngang trở lại */
+    gap: 2.5rem;
+  }
+
+  .spotlight-button {
+    align-self: flex-start; /* Căn trái trở lại */
+  }
+}

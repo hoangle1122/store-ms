@@ -1,0 +1,68 @@
+/* src/components/FullpageSection.css - File CSS mới */
+
+/* Container chính, chiếm toàn bộ section, tương tự Hero.css */
+.fullpage-section-container {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Dùng flexbox để căn giữa nội dung */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Nền tối cho các section */
+  background-color: var(--background-dark);
+
+  /* Thêm padding tổng thể để nội dung không bị sát viền */
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Tiêu đề của section */
+.fullpage-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 2rem 0; /* Khoảng cách từ tiêu đề tới nội dung */
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.fullpage-section-title .gradient-text {
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Áp dụng lại gradient cho các section cụ thể nếu cần */
+.genre-section .fullpage-section-title .gradient-text {
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+}
+
+/* Vùng chứa nội dung chính (danh sách, slider) */
+.fullpage-section-content {
+  width: 100%;
+  max-width: 1200px; /* Giới hạn chiều rộng nội dung để không quá dài trên màn hình lớn */
+  min-height: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Cụ thể cho danh sách track */
+.top-charts-section .fullpage-section-content {
+  max-width: 900px; /* Top chart có thể hẹp hơn */
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+}

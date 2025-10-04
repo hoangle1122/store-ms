@@ -1,0 +1,87 @@
+/* Trong AlbumList.css */
+.album-list-section {
+  padding: 6rem 1rem; /* Tăng padding để tạo không gian thoáng đãng */
+  position: relative;
+  overflow-x: hidden; /* THAY ĐỔI TỪ overflow: hidden; */
+  /* Hô biến background từ đen tuyền thành có chiều sâu */
+  background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(168, 85, 247, 0.15),
+      transparent 70%
+    ),
+    var(--background-dark);
+}
+
+/* Thêm các đường line trang trí mờ ảo */
+.album-list-section::before,
+.album-list-section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(168, 85, 247, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 100%;
+}
+
+.album-list-section::before {
+  top: 0;
+  transform: translateX(-400px);
+}
+
+.album-list-section::after {
+  top: 0;
+  transform: translateX(400px);
+}
+
+.album-list-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* Để các element con không bị ảnh hưởng bởi line trang trí */
+  z-index: 2;
+}
+
+.album-list-title {
+  font-size: 2.5rem; /* to hơn */
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  /* Áp dụng hiệu ứng gradient như logo */
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Thêm style cho subtitle */
+.album-list-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 4rem; /* Tăng khoảng cách tới grid */
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* Giữ nguyên .album-grid */
+.album-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .album-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

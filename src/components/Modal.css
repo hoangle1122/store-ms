@@ -1,0 +1,61 @@
+/* Generic modal styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-card {
+  width: min(560px, 92vw);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 26, 50, 0.85),
+    rgba(25, 20, 45, 0.9)
+  );
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+.modal-close {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.25rem;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  cursor: pointer;
+}
+.modal-header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.modal-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.modal-title h3 {
+  margin: 0;
+}
+.modal-tagline {
+  margin: 0;
+  color: #00d9ff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.modal-description {
+  color: rgba(255, 255, 255, 0.85);
+}
+.modal-stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,17 @@
+/* src/components/GlobalBackground.css */
+
+.global-background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1; /* Place it behind everything */
+  filter: brightness(
+    0.7
+  ); /* Slightly darken the video to make text more readable */
+}

@@ -1,0 +1,292 @@
+/* src/App.css - PHIÊN BẢN HOÀN CHỈNH CUỐI CÙNG */
+
+/* ===== GLOBAL FIXES ===== */
+body,
+html {
+  overflow-x: hidden !important;
+}
+.App {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ===== CONTAINER CHUNG ===== */
+.fullpage-content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 2rem 1rem 0 1rem;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Optimized subtle glow background */
+.fullpage-content-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(138, 43, 226, 0.2) 0%,
+    rgba(218, 79, 199, 0.12) 20%,
+    rgba(0, 217, 255, 0.08) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: glowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* Seamless gradient merging to player */
+.fullpage-content-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(20, 20, 35, 0.3) 30%,
+    rgba(10, 10, 30, 0.7) 70%,
+    rgba(10, 10, 30, 0.95) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ===== TIÊU ĐỀ CHUNG - PROMINENT & ATTRACTIVE ===== */
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 1), 0 0 50px var(--neon-purple),
+    0 0 80px var(--neon-purple);
+  filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6));
+
+  /* Forceful Flexbox alignment */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: baseline !important;
+  gap: 0.6rem;
+  white-space: nowrap !important;
+}
+
+/* Remove heavy animation */
+.section-title > span {
+  display: inline-block !important;
+}
+
+/* Media query cho màn hình tablet và desktop nhỏ */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Media query cho màn hình mobile */
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 1.4rem;
+    padding: 0 0.2rem;
+  }
+}
+
+.title-wrapper {
+  display: inline-flex; /* Sử dụng inline-flex để hoạt động như một khối văn bản */
+  align-items: baseline; /* Căn chỉnh theo đường cơ sở của văn bản */
+  white-space: nowrap;
+}
+
+.section-title .gradient-text {
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.genre-section .section-title .gradient-text {
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+}
+
+/* ===== SLIDER & CONTENT WRAPPERS ===== */
+.section-content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.producers-slider-wrapper,
+.genre-slider-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== TOP CHARTS SECTION ===== */
+.top-charts-section .track-list {
+  width: 90%;
+  max-width: 950px;
+  height: 60vh;
+  max-height: 550px;
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  padding-bottom: 1rem;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+
+  /* Glassmorphism Effect */
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 46, 0.6),
+    rgba(20, 20, 35, 0.7)
+  );
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ===== PANEL - UNIFIED WITH BACKGROUND ===== */
+.content-panel {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 1.5rem;
+  position: relative;
+  margin-bottom: 0;
+  flex: 0 1 auto;
+  max-height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  /* Flatten panel to blend with page background */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Subtle static glow effect - no animation */
+.content-panel::before {
+  /* Disable decorative glow */
+  content: none;
+  display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .fullpage-content-container {
+    padding: 1rem 0.8rem;
+    gap: 1rem;
+    padding-bottom: 80px;
+  }
+  .content-panel {
+    padding: 1.5rem 1rem 2.5rem 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  .fullpage-content-container {
+    padding: 0.8rem 0.5rem;
+    gap: 0.8rem;
+  }
+  .content-panel {
+    padding: 0.8rem 0.5rem;
+    width: 98%;
+  }
+  .top-charts-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .top-charts-section .fullpage-content-container {
+    justify-content: center;
+    height: auto;
+    width: 100%;
+  }
+  .top-charts-section .track-list {
+    width: 96vw;
+    height: auto;
+    border-radius: 10px;
+    padding: 0.2rem 0.1rem;
+    margin: 0 auto;
+    overflow-y: visible;
+  }
+}
+
+/* ===== FULLPAGE.JS NAVIGATION (GIỮ NGUYÊN) ===== */
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: var(--text-secondary) !important;
+  transition: all 0.2s ease-in-out;
+  width: 8px !important;
+  height: 8px !important;
+  margin: -4px 0 0 -4px !important;
+}
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
+  background: var(--neon-blue) !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: -6px 0 0 -6px !important;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+#fp-nav.fp-right {
+  right: 25px !important;
+}
+#fp-nav ul li .fp-tooltip {
+  color: var(--text-primary) !important;
+  background-color: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  top: 1px;
+}

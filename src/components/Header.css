@@ -1,0 +1,235 @@
+/* src/components/Header.css - PHIÊN BẢN HOÀN CHỈNH */
+
+/* Container chính của Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 50;
+  background-color: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box; /* THÊM DÒNG NÀY */
+
+  /* ✨ THAY ĐỔI: Thêm các thuộc tính cho hiệu ứng ẩn/hiện ✨ */
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  /* Mặc định sẽ bị ẩn (trượt lên trên) */
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+/* ✨ THAY ĐỔI: Khi có class 'visible', header sẽ hiện ra ✨ */
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Các style cũ giữ nguyên --- */
+
+/* Logo */
+.header-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    var(--neon-blue),
+    var(--neon-purple),
+    var(--neon-pink)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hue-rotate 3s infinite linear;
+  text-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes hue-rotate {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Menu điều hướng ở giữa */
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-nav.open {
+  transform: translateX(0);
+}
+
+/* Style cho nút Hamburger */
+.hamburger-button {
+  display: flex;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+@media (min-width: 992px) {
+  .header-nav {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    background: none;
+    backdrop-filter: none;
+    transform: translateX(0);
+    gap: 3rem;
+  }
+  .hamburger-button {
+    display: none;
+  }
+}
+
+.nav-link-wrapper {
+  /* THÊM CLASS NÀY */
+  position: relative;
+}
+
+/* Ẩn bớt các nút trên màn hình nhỏ */
+.header-actions .upload-button,
+.header-actions .become-seller-button {
+  display: none;
+}
+@media (min-width: 992px) {
+  .header-actions .upload-button,
+  .header-actions .become-seller-button {
+    display: flex;
+  }
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 0;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Khu vực hành động bên phải */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Các nút bấm */
+.upload-button,
+.become-seller-button,
+.login-button {
+  border: none;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.upload-button {
+  background-color: var(--neon-blue);
+  color: black;
+}
+.upload-button:hover {
+  background-color: white;
+  box-shadow: 0 0 15px white;
+}
+.become-seller-button {
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+}
+.become-seller-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+.login-button {
+  background-color: var(--surface-color);
+  color: white;
+}
+
+/* Nhóm các icon lại với nhau */
+.action-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 0 0.5rem;
+}
+
+.action-icon {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.action-icon:hover {
+  color: white;
+  text-shadow: 0 0 10px var(--neon-blue);
+  transform: scale(1.15);
+}
+
+/* Avatar người dùng */
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-purple);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.user-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--neon-purple);
+}

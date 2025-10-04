@@ -1,0 +1,84 @@
+/* src/components/MarketplaceEntrance.css */
+@import url("../App.css"); /* Import App.css to use variables */
+
+.me-container {
+  width: 90%;
+  max-width: 1200px;
+
+  /* Unified Glassmorphism Effect */
+
+  /* Centering and Content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.me-content {
+  padding: 1rem;
+  animation: fadeIn 1.5s 0.5s ease-in-out both;
+}
+
+.me-title {
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7), 0 0 25px var(--neon-purple);
+}
+
+.me-subtitle {
+  font-size: 1.25rem;
+  color: #e5e7eb;
+  margin-top: 0.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.me-button {
+  margin-top: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--neon-blue);
+  color: black;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.me-button:hover {
+  background-color: transparent;
+  color: var(--neon-blue);
+}
+
+@media (max-width: 767px) {
+  .me-title {
+    font-size: 2.5rem;
+  }
+  .me-subtitle {
+    font-size: 1rem;
+  }
+  .me-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

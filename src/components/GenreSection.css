@@ -1,0 +1,68 @@
+/* src/components/GenreSection.css */
+
+/* Căn giữa và thu gọn genre slider */
+.genre-slider-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  margin: 0 auto;
+  padding-bottom: 0;
+  overflow: hidden; /* Thêm để ẩn thanh trượt ngang */
+}
+
+.genre-slider.swiper {
+  width: 100%; /* Thay đổi từ 100vw */
+  max-width: 1200px;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.genre-slider .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .genre-slider .swiper-slide {
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+  }
+  .genre-slider.swiper {
+    padding-bottom: 10px;
+    padding-top: 5px;
+  }
+  .genre-slider-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+.genre-slider .swiper-pagination {
+  bottom: 0 !important;
+  text-align: center;
+}
+.genre-slider .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  margin: 0 4px !important;
+}
+.genre-slider .swiper-pagination-bullet-active {
+  background-color: var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+}
